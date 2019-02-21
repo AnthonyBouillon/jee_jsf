@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+
+<h:body>
+
+	<h4>Utilisation de l'attribut valueChangeListener avec JSF 2</h4>
+
+	<h:form>
+		<h:panelGrid columns="2">
+		Sélectionnez un pays : 
+		<h:inputText id="country" value="#{country.localeCode}" size="20" />
+			<!-- L'attribut valueChangeListener permet de 
+			préciser une expression qui désigne une méthode 
+			qui sera exécutée durant les traitements du cyle de vie
+			 de la requête. Pour que ces traitements puissent être 
+			 déclenchés, il faut soumettre la page. -->
+		Choix du pays: 
+		<h:selectOneMenu value="#{country.localeCode}" onchange="submit()"
+				valueChangeListener="#{country.changeCodeLocalePays}">
+				<f:selectItems value="#{country.countryInMap}" />
+			</h:selectOneMenu>
+
+		</h:panelGrid>
+
+	</h:form>
+
+</h:body>
+
+</html>
